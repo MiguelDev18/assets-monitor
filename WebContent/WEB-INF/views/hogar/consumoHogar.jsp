@@ -20,10 +20,10 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">Id Hogar</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Dirección</th>
       <th scope="col">Propietario</th>
       <th scope="col">Consumo energético</th>
-      <th scope="col">Consumo de agua</th>
-      <th scope="col">Consumo de gas</th>
     </tr>
   </thead>
   <tbody>

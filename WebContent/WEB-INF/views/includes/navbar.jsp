@@ -18,8 +18,9 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hogar</a>
+            <a class="nav-link dropdown-toggle" href="${urlRoot}hogar/index" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hogar</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="${urlRoot}hogar/index">Hogar</a>
               <a class="dropdown-item" href="${urlRoot}hogar/consumoh">Consumo Hogar</a>
               <a class="dropdown-item" href="${urlRoot}hogar/seguridadh">Seguridad Hogar</a>
               
@@ -32,6 +33,9 @@
               <a class="dropdown-item" href="#">Motos</a>
               <a class="dropdown-item" href="#">Carros</a>
             </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="${urlRoot}usuario/index">Usuarios <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
