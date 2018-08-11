@@ -22,7 +22,8 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/AssetManager?useSSL=false" />
-
+		<property name="username" value="" />
+		<property name="password" value="" />
 	</bean>
 
 	<bean id="jpaVendorAdapter"

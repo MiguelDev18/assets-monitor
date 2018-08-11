@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Usuarios</title>
+<title>Energia</title>
 <spring:url value="/resources" var="urlPublic" />
-<spring:url value="/usuario" var="urlUsuario" />
 <spring:url value="/hogar" var="urlHogar" />
+<spring:url value="/energy" var="urlEnergia" />
 <link href="${urlPublic}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -16,43 +16,29 @@
 
     <div class="container theme-showcase" role="main">
         <!-- Example row of columns -->
-        
-        <c:if test="${mensaje!=null }">
-      	
-      	<div class='alert alert-success' role="alert">${ mensaje}</div>
-      	
-      </c:if>
-      
         <hr>
-        <a href="${urlUsuario}/form" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Nuevo Usuario</a>
-        
-        <hr>
+
         
         <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Teléfono</th>
-      <th scope="col">Email</th>
-      <th scope="col">Hogares del usuario</th>
-      <th scope="col">Opciones de usuario</th>
+      <th scope="col">Id Energia</th>
+      <th scope="col">Energia Dia</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hogar Id</th>
     </tr>
   </thead>
   <tbody>
   
-  <c:forEach items="${usuarios}" var="usuario">
+  <c:forEach items="${energia}" var="energia">
   <tr>
-  <td>${usuario.nombre }</td>
-  <td>${usuario.telefono }</td>
-  <td>${usuario.email }</td>
-  <td>
-  <a href="${urlHogar}/hogarusuario/${usuario.id}" class="btn  btn-info btn-sm" role="button" title="Hogares"><span class="glyphicon glyphicon-pencil">Hogares</span></a>
-  </td>
+  <td>${energia.id }</td>
+  <td>${energia.energiaDia }</td>
+  <td>${energia.dia }</td>
+  <td>${energia.hogar.id}</td>
+
   
-  <td>
-	<a href="${urlUsuario}/edit/${usuario.id}" class="btn btn-success btn-sm" role="button" title="Edit"><span>Editar</span></a>
-	<a href="${urlUsuario}/delete/${usuario.id}" onclick='return confirm("¿Estas seguro?")' class="btn btn-danger btn-sm" role="button" title="Eliminar"><span>Eliminar</span></a>
-</td>
+  
   </tr>
   </c:forEach>
   <!-- 

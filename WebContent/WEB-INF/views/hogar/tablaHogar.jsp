@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Hogar</title>
 <spring:url value="/resources" var="urlPublic" />
+<spring:url value="/hogar" var="urlHogar" />
+<spring:url value="/energy" var="urlEnergia" />
 <link href="${urlPublic}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -15,7 +17,10 @@
     <div class="container theme-showcase" role="main">
         <!-- Example row of columns -->
         <hr>
+        <hr>
+        <a href="${urlHogar}/form" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Registrar Hogar</a>
         
+        <hr>
         
         <table class="table">
   <thead class="thead-dark">
@@ -25,7 +30,7 @@
       <th scope="col">Dirección</th>
       <th scope="col">Propietario</th>
       <th scope="col">Consumo energético</th>
-      <th scope="col">Detección de movimiento</th>
+      <th scope="col">Opciones de Hogar</th>
     </tr>
   </thead>
   <tbody>
@@ -36,6 +41,15 @@
   <td>${hogar.ciudad }</td>
   <td>${hogar.direccion }</td>
   <td>${hogar.usuario.nombre}</td>
+  <td>
+  <a href="${urlEnergia}/energyhogar/${hogar.id}" class="btn  btn-info btn-sm" role="button"><span>Consultar</span></a>
+  </td>
+  
+  <td>
+	<a href="${urlHogar}/edit/${hogar.id}" class="btn btn-success btn-sm" role="button" title="Edit"><span>Editar</span></a>
+	<a href="${urlHogar}/delete/${hogar.id}" onclick='return confirm("¿Estas seguro?")' class="btn btn-danger btn-sm" role="button" title="Eliminar"><span>Eliminar</span></a>
+</td>
+  
   </tr>
   </c:forEach>
   <!-- 

@@ -21,25 +21,19 @@
         
         <div class="col-md-8 order-md-1">
           
-          <form:form action="${urlUsuario}/save" method="POST" modelAttribute="usuario">
+          <form:form action="${urlHogar}/save" method="POST" modelAttribute="hogar">
             
             <div class="mb-3">
-              <label for="nombre">Nombre </label>
+              <label for="nombre">Ciudad </label>
               <form:hidden class="form-control" path="id"/>
-              <form:input type="text" class="form-control" path="nombre" id="nombre" required="required"/>
+              <form:hidden class="form-control" path="usuario.id" value="${idUsuario}"/>
+              <form:input type="text" class="form-control" path="ciudad" id="ciudad" required="required"/>
             </div>
             
             <div class="mb-3">
-              <label for="telefono">Teléfono </label>
-              <form:input type="text" class="form-control" path="telefono" id="telefono" required="required"/>
+              <label for="telefono">Dirección </label>
+              <form:input type="text" class="form-control" path="direccion" id="direccion" required="required"/>
             </div>
-            
-           	<div class="mb-3">
-              <label for="email">Email </label>
-              <form:input type="email" class="form-control" path="email" id="email" required="required" placeholder="you@example.com"/>
-            </div>
- 
-            
               
             
             <hr class="mb-4">
