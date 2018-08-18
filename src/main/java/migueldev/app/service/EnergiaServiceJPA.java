@@ -16,7 +16,7 @@ public class EnergiaServiceJPA implements IEnergiaService{
 
 	@Override
 	public List<Energia> mostrarEnergiaHogar(int idHogar) {
-		
+		//encontrar la lista de consumo de energia correspondiente al hogar con el id solicitado
 		return energiaRepo.findByHogar_IdOrderByIdDesc(idHogar);
 	}
 

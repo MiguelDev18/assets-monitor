@@ -30,6 +30,7 @@ public class HogarServiceJPA implements IHogarService{
 
 	@Override
 	public void guardarHogar(Hogar hogar) {
+		System.out.println("hogar (service):" + hogar);
 		hogaresRepo.save(hogar);
 		
 	}
@@ -43,6 +44,7 @@ public class HogarServiceJPA implements IHogarService{
 	public Hogar mostrarHogar(int idHogar) {
 		Optional<Hogar> hogar = hogaresRepo.findById(idHogar);
 		if(hogar.isPresent())
+			//verificar que se encuentre el hogar dentro de la base de datos
 			return hogar.get();
 		return null;
 	}

@@ -6,7 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import migueldev.app.model.Hogar;
+import migueldev.app.model.RoleUsuario;
 import migueldev.app.model.Usuario;
+import migueldev.app.repository.HogaresRepository;
+import migueldev.app.repository.RolesUsuarioRepository;
 import migueldev.app.repository.UsuariosRepository;
 
 @Service
@@ -15,6 +19,9 @@ public class UsuarioServiceJPA implements IUsuarioService{
 	
 	@Autowired
 	private UsuariosRepository usuariosRepo;
+	
+	@Autowired
+	private RolesUsuarioRepository roleRepo;
 	
 	
 	@Override
@@ -25,9 +32,11 @@ public class UsuarioServiceJPA implements IUsuarioService{
 
 	@Override
 	public void guardarUsuario(Usuario usuario) {
+		System.out.println("usuario: " + usuario);
 		usuariosRepo.save(usuario);
 		
 	}
+	
 
 	@Override
 	public Usuario mostrarUsuario(int idUsuario) {
@@ -42,6 +51,23 @@ public class UsuarioServiceJPA implements IUsuarioService{
 		usuariosRepo.deleteById(idUsuario);
 		
 	}
+
+	@Override
+	public Usuario mostrarUsuario(String username) {
+		return usuariosRepo.findByUsername(username);
+	}
+
+	@Override
+	public void guardarRole(RoleUsuario role) {
+		roleRepo.save(role);
+		
+	}
+
+	@Override
+	public boolean existeRole(String username) {
+		return roleRepo.existsByUsername(username);
+	}
+
 
 
 

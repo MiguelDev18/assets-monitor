@@ -24,7 +24,7 @@
       <label for="username" class="sr-only">User</label>
       <input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required autofocus>
       <label for="password" class="sr-only">Password</label>
-      <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+      <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
       <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <br>

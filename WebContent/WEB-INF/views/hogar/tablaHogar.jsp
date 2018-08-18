@@ -16,8 +16,13 @@
 
     <div class="container theme-showcase" role="main">
         <!-- Example row of columns -->
+		<hr>
+		<c:if test="${mensaje!=null }">
+			<div class='alert alert-success' role="alert">${ mensaje}</div>
+		</c:if>
+		
         <hr>
-        <hr>
+        
         <a href="${urlHogar}/form" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Registrar Hogar</a>
         
         <hr>
@@ -41,14 +46,44 @@
   <td>${hogar.ciudad }</td>
   <td>${hogar.direccion }</td>
   <td>${hogar.usuario.nombre}</td>
+   
+  <td>
+  <form action="${urlEnergia}/energyhogar" method="POST">
+  <input type="hidden" name="idHogar" value="${hogar.id}"/>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+  <button type="submit" class="btn  btn-info btn-sm" ><span>Consultar</span></button>
+  </form>
+  </td>
+  
+  <td>
+  <div class="btn-group" role="group">
+  <form action="${urlHogar}/edit" method="POST">
+  <input type="hidden" name="idHogar" value="${hogar.id}"/>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+  <button type="submit" class="btn btn-outline-primary btn-sm" ><span>Editar</span></button>
+  </form>
+  
+  <form action="${urlHogar}/delete" method="POST">
+  <input type="hidden" name="idHogar" value="${hogar.id}"/>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+  <button type="submit" onclick='return confirm("¿Estas seguro?")' class="btn btn-outline-danger btn-sm" ><span>Eliminar</span></button>
+  </form>
+  </div>
+  </td>
+
+  <!-- 
   <td>
   <a href="${urlEnergia}/energyhogar/${hogar.id}" class="btn  btn-info btn-sm" role="button"><span>Consultar</span></a>
   </td>
+   -->
   
+  
+  <!-- 
   <td>
 	<a href="${urlHogar}/edit/${hogar.id}" class="btn btn-success btn-sm" role="button" title="Edit"><span>Editar</span></a>
 	<a href="${urlHogar}/delete/${hogar.id}" onclick='return confirm("¿Estas seguro?")' class="btn btn-danger btn-sm" role="button" title="Eliminar"><span>Eliminar</span></a>
 </td>
+ -->
   
   </tr>
   </c:forEach>

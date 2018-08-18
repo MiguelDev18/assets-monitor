@@ -1,6 +1,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,32 +21,54 @@
         <br>
         
         <div class="col-md-8 order-md-1">
-          
-          <form:form action="${urlUsuario}/save" method="POST" modelAttribute="usuario">
-            
-            <div class="mb-3">
-              <label for="nombre">Nombre </label>
-              <form:hidden class="form-control" path="id"/>
-              <form:input type="text" class="form-control" path="nombre" id="nombre" required="required"/>
-            </div>
-            
-            <div class="mb-3">
-              <label for="telefono">Teléfono </label>
-              <form:input type="text" class="form-control" path="telefono" id="telefono" required="required"/>
-            </div>
-            
-           	<div class="mb-3">
-              <label for="email">Email </label>
-              <form:input type="email" class="form-control" path="email" id="email" required="required" placeholder="you@example.com"/>
-            </div>
- 
-            
-              
-            
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
-          </form:form>
-        </div>
+
+			<form:form action="${urlUsuario}/save" method="POST"
+				modelAttribute="usuario">
+
+				<div class="mb-3">
+					<label for="nombre">Nombre </label>
+					<form:hidden class="form-control" path="id" />
+					<form:input type="text" class="form-control" path="nombre"
+						id="nombre" required="required" />
+				</div>
+
+				<div class="mb-3">
+					<label for="telefono">Teléfono </label>
+					<form:input type="text" class="form-control" path="telefono"
+						id="telefono" required="required" />
+				</div>
+
+				<div class="mb-3">
+					<label for="email">Email </label>
+					<form:input type="email" class="form-control" path="email"
+						id="email" required="required" placeholder="you@example.com" />
+				</div>
+
+				<div class="mb-3">
+					<label for="username">Nombre de Usuario </label>
+					<form:input type="text" class="form-control" path="username"
+						id="username" required="required" />
+				</div>
+
+				<div class="mb-3">
+					<label for="password">Contraseña</label>
+					<form:input type="password" class="form-control" path="password"
+						id="password" required="required" />
+				</div>
+
+				<sec:authorize access="hasAnyAuthority('gerente')">
+					<div class="form-check">
+						<input type="checkbox" class="form-check-input" name="activo"
+							value="true" id="activo" checked> <label
+							class="form-check-label" for="defaultCheck1">Activar
+							Usuario</label>
+					</div>
+				</sec:authorize>
+
+				<hr class="mb-4">
+				<button class="btn btn-primary btn-lg btn-block" type="submit">Registrar</button>
+			</form:form>
+		</div>
         
         <hr>
         

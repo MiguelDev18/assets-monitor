@@ -29,6 +29,7 @@ public class Usuario {
 	
 	private String password;
 	
+	private boolean activo = true;
 	
 	public int getId() {
 		return id;
@@ -67,11 +68,22 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+
+	public boolean isActivo() {
+		return activo;
+	}
+	public void setActivo(boolean activo) {
+		this.activo = activo;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + ", telefono=" + telefono
-				+ ", username=" + username + ", password=" + password + "]";
+				+ ", username=" + username + ", password=" + password + ", activo=" + activo + "]";
 	}
+	
 	
 	
 	

@@ -8,6 +8,7 @@
 <spring:url value="/resources" var="urlPublic" />
 <spring:url value="/usuario" var="urlUsuario" />
 <spring:url value="/hogar" var="urlHogar" />
+<spring:url value="/energy" var="urlEnergia" />
 <link href="${urlPublic}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -45,14 +46,37 @@
   <td>${usuario.nombre }</td>
   <td>${usuario.telefono }</td>
   <td>${usuario.email }</td>
+  
   <td>
-  <a href="${urlHogar}/hogarusuario/${usuario.id}" class="btn  btn-info btn-sm" role="button" title="Hogares"><span class="glyphicon glyphicon-pencil">Hogares</span></a>
+  <form action="${urlHogar}/hogarxusuario" method="POST">
+  <input type="hidden" name="idUsuario" value="${usuario.id}"/>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+  <button type="submit" class="btn  btn-info btn-sm" ><span>Consultar</span></button>
+  </form>
   </td>
   
+  <td>
+  <div class="btn-group" role="group">
+  <form action="${urlUsuario}/edit" method="POST">
+  <input type="hidden" name="idUsuario" value="${usuario.id}"/>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+  <button type="submit" class="btn btn-outline-primary btn-sm" ><span>Editar</span></button>
+  </form>
+  <!-- 
+  <form action="${urlUsuario}/delete" method="POST">
+  <input type="hidden" name="idUsuario" value="${usuario.id}"/>
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+  <button type="submit" onclick='return confirm("¿Estas seguro?")' class="btn btn-outline-danger btn-sm" ><span>Eliminar</span></button>
+  </form> -->
+  </div>
+  </td>
+  
+  <!--
   <td>
 	<a href="${urlUsuario}/edit/${usuario.id}" class="btn btn-success btn-sm" role="button" title="Edit"><span>Editar</span></a>
 	<a href="${urlUsuario}/delete/${usuario.id}" onclick='return confirm("¿Estas seguro?")' class="btn btn-danger btn-sm" role="button" title="Eliminar"><span>Eliminar</span></a>
 </td>
+-->
   </tr>
   </c:forEach>
   <!-- 
